@@ -45,19 +45,19 @@ class TwoStreamIQA(nn.Module):
         pool4 = F.max_pool2d(conv4, (2, 2), stride=2)
 
         # gradient region
-        conv0_gra = F.relu(self.conv0(x_gra))
+        conv0_gra = F.relu(self.conv0_gra(x_gra))
         pool0_gra = F.max_pool2d(conv0_gra, (2, 2), stride=2)
 
-        conv1_gra = F.relu(self.conv1(pool0_gra))
+        conv1_gra = F.relu(self.conv1_gra(pool0_gra))
         pool1_gra = F.max_pool2d(conv1_gra, (2, 2), stride=2)
 
-        conv2_gra = F.relu(self.conv2(pool1_gra))
+        conv2_gra = F.relu(self.conv2_gra(pool1_gra))
         pool2_gra = F.max_pool2d(conv2_gra, (2, 2), stride=2)
 
-        conv3_gra = F.relu(self.conv3(pool2_gra))
+        conv3_gra = F.relu(self.conv3_gra(pool2_gra))
         pool3_gra = F.max_pool2d(conv3_gra, (2, 2), stride=2)
 
-        conv4_gra = F.relu(self.convP1(pool3_gra))
+        conv4_gra = F.relu(self.convP2_gra(pool3_gra))
         pool4_gra = F.max_pool2d(conv4_gra, (2, 2), stride=2)
 
         pool4 = pool4.squeeze(3).squeeze(2)
