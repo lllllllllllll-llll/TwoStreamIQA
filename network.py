@@ -57,7 +57,7 @@ class TwoStreamIQA(nn.Module):
         conv3_gra = F.relu(self.conv3_gra(pool2_gra))
         pool3_gra = F.max_pool2d(conv3_gra, (2, 2), stride=2)
 
-        conv4_gra = F.relu(self.convP2_gra(pool3_gra))
+        conv4_gra = F.relu(self.convP2(pool3_gra))
         pool4_gra = F.max_pool2d(conv4_gra, (2, 2), stride=2)
 
         pool4 = pool4.squeeze(3).squeeze(2)
